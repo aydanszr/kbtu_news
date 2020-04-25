@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs-compat';
 import { Router, NavigationEnd } from '@angular/router';
 import { map, filter } from 'rxjs/operators';
 
@@ -28,7 +28,7 @@ export class HeaderComponent {
         .pipe(
             filter(event => event instanceof NavigationEnd),
             map((event: NavigationEnd) => {
-                return event.url === "/profile/" + this.username;
+                return decodeURIComponent(event.url) === "/profile/" + this.username;
             }),
         );
     }
