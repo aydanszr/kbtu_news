@@ -1,0 +1,11 @@
+<article class="post">
+    <h1 class="post-title">{{ post.title }}</h1>
+    <div class="post-meta">
+        <a routerLink="/profile/{{ post.authorname }}">{{ post.authorname }}</a>,
+        <time>{{ formatIsoDate(post.pub_date) }}</time>
+    </div>
+    <p>{{ post.post_text }}</p>
+    <div *ngIf="post.authorname == getUsername()">
+        <button (click)="deletePost()">Удалить статью</button>
+    </div>
+</article>

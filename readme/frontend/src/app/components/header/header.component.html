@@ -1,0 +1,19 @@
+<header>
+    <a routerLink="/" class="logo">KBTU News</a>
+
+    <nav>
+        <div *ngIf="(isSignedIn | async) && !(isOnProfilePage | async)">
+            <a routerLink="/write-post">Написать статью</a>
+            <a routerLink="/profile/{{ username }}">{{ username }}</a>
+        </div>
+
+        <a
+            *ngIf="(isSignedIn | async) && (isOnProfilePage | async)"
+            (click)="signOut()">
+            Выйти из аккаунта
+        </a>
+        <a
+            *ngIf="!(isSignedIn | async)"
+            routerLink="/sign-in">Войти</a>
+    </nav>
+</header>

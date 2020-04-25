@@ -1,0 +1,19 @@
+<form [formGroup]="form">
+    <p>
+    <input
+        placeholder="Заголовок статьи..."
+        name="title"
+        formControlName="title"
+        required>
+    </p>
+
+    <textarea
+        placeholder="Текст статьи..."
+        required
+        name="text"
+        formControlName="text"
+        ></textarea>
+    <div style="display: flex">
+        <button (click)="createPost()">Готово</button>
+    </div>
+</form>

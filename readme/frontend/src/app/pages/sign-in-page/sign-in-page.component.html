@@ -1,0 +1,24 @@
+<form [formGroup]="form">
+    <h1>Вход в аккаунт</h1>
+
+    <hr>
+
+    <h3>Имя пользователя</h3>
+    <input name="username" formControlName="username">
+
+    <h3>Пароль</h3>
+    <input
+        name="password"
+        type="password"
+        formControlName="password">
+    <p class="error">{{ errorMessage }}</p>
+
+    <div style="display: flex; flex-wrap: wrap">
+    <button (click)="signIn()">
+        Войти
+    </button>
+    <button (click)="signUp()">
+        Создать аккаунт
+    </button>
+    </div>
+</form>

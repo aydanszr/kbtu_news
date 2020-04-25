@@ -1,0 +1,35 @@
+<div>
+    <h1>{{ (profileSubj | async)?.username }}</h1>
+
+    <h2>О себе</h2>
+
+    <p>{{ (profileSubj | async)?.desc || "Ничего." }}</p>
+
+    <h2>Статьи от {{ (profileSubj | async)?.username }}</h2>
+
+    <p *ngIf="!(profileSubj | async)?.posts?.length">
+        Пользователь не выкладывал статей.
+    </p>
+
+    <ul>
+        <li class="post-preview" *ngFor="let post of (profileSubj | async)?.posts">
+            <h3 class="post-title"><a routerLink="/post/{{ post.id }}">{{ post.title }}</a></h3>
+            <time class="post-meta">{{ post.pub_date }}</time>
+        </li>
+    </ul>
+
+    <h2>Любимые статьи</h2>
+
+    <p *ngIf="!(profileSubj | async)?.liked?.length">
+        Отсутствуют.
+    </p>
+
+    <ul>
+        <li class="post-preview" *ngFor="let post of (profileSubj | async)?.liked">
+            <h3 class="post-title"><a routerLink="/post/{{ post.id }}">{{ post.title }}</a></h3>
+            <a
+                routerLink="/profile/{{ post.authorname }}"
+                class="post-meta">{{ post.authorname }}</a><time class="post-meta">, {{ post.pub_date }}</time>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,15 @@
+<ul>
+    <li
+        *ngFor="let post of posts"
+        class="post-preview"
+        >
+        <a
+            routerLink="/post/{{ post.id }}">
+            <h2 class="post-title">{{ post.title }}</h2>
+            <a
+                routerLink="/profile/{{ post.authorname }}"
+                class="post-meta">
+                {{ post.authorname }}</a><time class="post-meta">, {{ post.pub_date }}</time>
+        </a>
+    </li>
+</ul>

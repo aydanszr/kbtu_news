@@ -1,0 +1,8 @@
+form {
+    max-width: 720px;
+}
+
+button {
+    max-width: 260px;
+    margin: 16px auto;
+}
